@@ -1,5 +1,4 @@
 from fastapi import FastAPI, HTTPException, Depends, status
-from pydantic import BaseModel
 from typing import Annotated
 from database import engine, SessionLocal
 from sqlalchemy.orm import Session
