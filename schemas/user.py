@@ -9,3 +9,9 @@ class UserBase(BaseModel):
     email: str
     date_of_birth: datetime.date
     address: str
+
+class User(UserBase):
+    id: int
+
+    class Config:
+        orm_mode = True
