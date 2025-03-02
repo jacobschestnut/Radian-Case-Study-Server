@@ -10,7 +10,7 @@ class UserBase(BaseModel):
     date_of_birth: datetime.date
     address: str
 
-class User(UserBase):
+class UserModel(UserBase):
     id: int
 
     class Config:
