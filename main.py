@@ -4,7 +4,6 @@ from database import engine, SessionLocal
 from sqlalchemy.orm import Session
 import models
 from fastapi.middleware.cors import CORSMiddleware
-
 from schemas import UserModel, UserBase
 
 app = FastAPI()

@@ -9,6 +9,8 @@ class UserBase(BaseModel):
     email: str
     date_of_birth: datetime.date
     address: str
+    tier: str
+    billing_period: str
 
 class UserModel(UserBase):
     id: int

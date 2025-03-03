@@ -12,3 +12,5 @@ class User(Base):
     email = Column(String(50), unique=True)
     date_of_birth = Column(Date)
     address = Column(String(50))
+    tier = Column(String(50))
+    billing_period = Column(String(50))
