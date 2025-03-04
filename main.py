@@ -6,7 +6,7 @@ import models
 from fastapi.middleware.cors import CORSMiddleware
 from schemas import UserModel, UserBase
 
-app = FastAPI()
+app = FastAPI(trailing_slash=True)
 
 origins = [
     'http://localhost:3000'
@@ -31,11 +31,13 @@ db_dependency = Annotated[Session, Depends(get_db)]
 
 models.Base.metadata.create_all(bind=engine)
 
-@app.post("/users/", response_model=UserModel)
+@app.post("/users", response_model=UserModel)
 async def create_user(user: UserBase, db: db_dependency):
-    user = models.User(**user.model_dump())
-    db.add(user)
+    db_user = models.User(**user.dict())
+    db.add(db_user)
     db.commit()
+    db.refresh(db_user)
+    return db_user
 
 @app.get("/users", response_model=List[UserModel])
 async def read_users(db: db_dependency, skip: int = 0, limit: int = 100):

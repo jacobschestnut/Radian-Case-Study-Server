@@ -9,7 +9,7 @@ class User(Base):
     middle_initial = Column(String(50))
     last_name = Column(String(50))
     email = Column(String(50), unique=True)
-    date_of_birth = Column(Date)
+    date_of_birth = Column(String(50))
     address = Column(String(50))
     tier = Column(String(50))
     billing_period = Column(String(50))
