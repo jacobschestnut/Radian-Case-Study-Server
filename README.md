@@ -4,7 +4,7 @@
 
 ```bash
 git clone <repository-url>
-cd draw-steel-server
+cd radian-case-study-server
 ```
 
 2. Set up virtual environment:
